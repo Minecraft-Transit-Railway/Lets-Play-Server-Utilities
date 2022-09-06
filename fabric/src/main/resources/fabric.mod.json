@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "updater",
+	"id": "letsplay",
 	"version": "${version}",
 	"name": "Let's Play Server Utilities",
 	"description": "A small utility mod for the Let's Play server.",
@@ -14,7 +14,7 @@
 	"license": "MIT",
 	"environment": "*",
 	"entrypoints": {
-		"preLaunch": [
+		"server": [
 			"letsplay.LetsPlayFabric"
 		]
 	},
