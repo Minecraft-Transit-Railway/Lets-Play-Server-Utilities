@@ -9,6 +9,6 @@ public class LetsPlayFabric implements DedicatedServerModInitializer {
 	public void onInitializeServer() {
 		LetsPlay.init();
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> LetsPlay.onPlayerJoin(server));
-		ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> LetsPlay.onPlayerQuit(server));
+		ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> LetsPlay.onPlayerQuit(server, handler.player));
 	}
 }

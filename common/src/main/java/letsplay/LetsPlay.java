@@ -3,6 +3,10 @@ package letsplay;
 import letsplay.mappings.Utilities;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class LetsPlay {
 
@@ -15,11 +19,13 @@ public class LetsPlay {
 	public static void onPlayerJoin(MinecraftServer server) {
 		final CommandSourceStack commandSourceStack = server.createCommandSourceStack();
 		runCommand(server, commandSourceStack, "/chunky pause");
-		System.out.println("Server player count: " + server.getPlayerCount());
 	}
 
-	public static void onPlayerQuit(MinecraftServer server) {
-		final int playerCount = server.getPlayerCount();
+	public static void onPlayerQuit(MinecraftServer server, ServerPlayer player) {
+		final Set<ServerPlayer> players = new HashSet<>(server.getPlayerList().getPlayers());
+		players.remove(player);
+		final int playerCount = players.size();
+
 		if (playerCount == 0) {
 			final CommandSourceStack commandSourceStack = server.createCommandSourceStack();
 			runCommand(server, commandSourceStack, "/chunky continue");
