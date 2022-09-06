@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "updater",
+	"version": "${version}",
+	"name": "Let's Play Server Utilities",
+	"description": "A small utility mod for the Let's Play server.",
+	"authors": [
+		"Jonathan Ho"
+	],
+	"contact": {
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/minecraft-transit-railway",
+		"sources": "https://github.com/jonafanho/Lets-Play-Server-Utilities"
+	},
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"preLaunch": [
+			"letsplay.LetsPlayFabric"
+		]
+	},
+	"depends": {
+		"fabric": "*",
+		"minecraft": "*"
+	}
+}
